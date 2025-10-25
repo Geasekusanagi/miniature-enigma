@@ -32,7 +32,7 @@ btn.addEventListener('click', async () => {
   // Try to call /api/audit (this will work later when you add a backend).
   // For now, this tries and falls back to sampleResult so you can see output.
   try {
-    const resp = await fetch(https://YOURSITE.netlify.app/api/audit?url=${encodeURIComponent(url)}, { method: 'GET' });
+    const resp = await fetch(`https://YOURSITE.netlify.app/api/audit?url=${encodeURIComponent(url)}`);, { method: 'GET' });
     if (!resp.ok) throw new Error('API not available');
     const data = await resp.json();
     showResult(data);
@@ -69,4 +69,5 @@ function escapeHtml(s) {
   return s.replace(/[&<>"']/g, function(m){
     return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
   });
+
 }
